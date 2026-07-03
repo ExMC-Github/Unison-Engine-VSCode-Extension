@@ -260,6 +260,48 @@ export const unisonModules: Record<string, ApiItem[]> = {
             returns: {type: 'bool', description: '运行状态'} 
         },
         { 
+            name: 'set_frame_limit', 
+            kind: 'function', 
+            signature: 'set_frame_limit(limit: int)', 
+            description: '设置最大帧率限制。\n\n' +
+                '设置引擎的最大帧率。设置为0表示不限制帧率（允许引擎以最大速度运行）。\n' +
+                '默认帧率限制为60 FPS。\n\n' +
+                '参数:\n' +
+                '• limit: 最大帧率，单位为FPS。设置为0取消帧率限制\n\n' +
+                '使用示例:\n' +
+                '```python\n' +
+                '# 设置帧率为60 FPS\n' +
+                'unison.excore.set_frame_limit(60)\n' +
+                '\n' +
+                '# 设置帧率为30 FPS（省电模式）\n' +
+                'unison.excore.set_frame_limit(30)\n' +
+                '\n' +
+                '# 取消帧率限制（最高性能）\n' +
+                'unison.excore.set_frame_limit(0)\n' +
+                '```',
+            params: [{name: 'limit', type: 'int', description: '最大帧率(FPS)，0表示不限制'}] 
+        },
+        { 
+            name: 'get_frame_limit', 
+            kind: 'function', 
+            signature: 'get_frame_limit() -> int', 
+            description: '获取当前帧率限制设置。\n\n' +
+                '返回引擎当前的帧率限制值。默认值为60。\n\n' +
+                '返回值:\n' +
+                '• int: 当前帧率限制，单位为FPS。返回0表示无限制\n\n' +
+                '使用示例:\n' +
+                '```python\n' +
+                '# 获取当前帧率限制\n' +
+                'limit = unison.excore.get_frame_limit()\n' +
+                'print(f"当前帧率限制: {limit} FPS")\n' +
+                '\n' +
+                '# 根据当前设置调整\n' +
+                'if unison.excore.get_frame_limit() > 60:\n' +
+                '    unison.excore.set_frame_limit(60)  # 限制到60 FPS\n' +
+                '```',
+            returns: {type: 'int', description: '当前帧率限制(FPS)，0表示不限制'} 
+        },
+        { 
             name: 'create_window', 
             kind: 'function', 
             signature: 'create_window(title: str, width: int, height: int)', 

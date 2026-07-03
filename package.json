@@ -2,7 +2,7 @@
   "name": "unison-engine",
   "displayName": "Unison Engine",
   "description": "Unison Engine Script Developer Extension - 提供API文档、代码补全、悬停提示等功能",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "publisher": "ExRFy",
   "icon": "UnsLogo.png",
   "license": "BSD-3-Clause",
